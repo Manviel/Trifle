@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
-
-export class Hero {
-  id: number;
-  name: string;
-}
 
 @Component({
   selector: 'app-heroes',
