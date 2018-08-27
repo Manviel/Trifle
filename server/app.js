@@ -9,6 +9,9 @@ const positionRoutes = require('./routes/position');
 
 const app = express();
 
+app.use(require('morgan')('dev'));
+app.use(require('cors')());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
