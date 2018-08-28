@@ -1,6 +1,6 @@
 module.exports.getAll = function (req, res) {
-  res.status(200).json({
-    login: 'It is work'
+  res.json({
+    message: 'Categories'
   })
 }
 
