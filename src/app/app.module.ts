@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   MatToolbarModule,
@@ -33,6 +34,7 @@ import { SiteComponent } from './layouts/site/site.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,
@@ -40,7 +42,6 @@ import { SiteComponent } from './layouts/site/site.component';
     MatButtonModule,
     MatCardModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
