@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {
   MatToolbarModule,
@@ -20,6 +20,8 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
+
+import { TokenIntercepter } from './classes/token.intercepter';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,11 @@ import { SiteComponent } from './layouts/site/site.component';
     MatButtonModule,
     MatCardModule
   ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: TokenIntercepter
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
