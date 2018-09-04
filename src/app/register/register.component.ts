@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { MatSnackBar } from '@angular/material';
+
 import { Subscription } from 'rxjs';
 
 import { AuthService } from '../services/auth.service';
@@ -17,7 +19,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -42,6 +45,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           registered: true
         }
       }),
+      error => this.snackBar.open(error.error.message),
       () => this.form.enable()
     );
   }

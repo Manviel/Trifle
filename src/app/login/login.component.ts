@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { MatSnackBar } from '@angular/material';
+
 import { Subscription } from 'rxjs';
 
 import { AuthService } from '../services/auth.service';
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -30,9 +33,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe(
       (params: Params) => {
         if (params['registered']) {
-          console.log('Можете зайти');
+          this.snackBar.open('Now you can go');
         } else if (params['accessDenied']) {
-          console.log('Авторизуйтесь');
+          this.snackBar.open('Please log in');
+        } else if (params['sessionFailed']) {
+          this.snackBar.open('Log in again');
         }
       }
     );
@@ -49,6 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.sub = this.auth.login(this.form.value).subscribe(
       () => this.router.navigate(['/overview']),
+      error => this.snackBar.open(error.error.message),
       () => this.form.enable()
     );
   }
