@@ -10,7 +10,10 @@ import {
   MatInputModule,
   MatButtonModule,
   MatCardModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +26,7 @@ import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
 
 import { TokenIntercepter } from './classes/token.intercepter';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { TokenIntercepter } from './classes/token.intercepter';
     LoginComponent,
     AuthComponent,
     SiteComponent,
-    RegisterComponent
+    RegisterComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,10 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

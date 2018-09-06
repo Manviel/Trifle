@@ -6,6 +6,7 @@ import { SiteComponent } from './layouts/site/site.component';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { OverviewComponent } from './overview/overview.component';
 
 import { AuthGuard } from './classes/auth.guard';
 
@@ -18,7 +19,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: '', component: SiteComponent, canActivate: [AuthGuard], children: []
+    path: '', component: SiteComponent, canActivate: [AuthGuard], children: [
+      { path: 'overview', component: OverviewComponent }
+    ]
   }
 ];
 

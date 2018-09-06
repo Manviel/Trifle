@@ -1,3 +1,15 @@
-<p>
-  site works!
-</p>
+<mat-sidenav-container class="nav">
+  <mat-sidenav mode="side" opened class="flex">
+    <mat-list class="content">
+      <mat-list-item *ngFor="let link of links" routerLinkActive="active">
+        <a [routerLink]="[link.url]">{{ link.name }}</a>
+      </mat-list-item>
+    </mat-list>
+    <footer (click)="logout($event)" class="footer">
+      <button mat-button>Log Out</button>
+    </footer>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

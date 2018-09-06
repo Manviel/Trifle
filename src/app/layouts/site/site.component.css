@@ -1,0 +1,23 @@
+a { text-decoration: none; }
+
+a:visited, a:link { color: #202020; }
+
+.nav { height: 100vw; }
+
+.active { background: #f0f0f0; }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  margin: 30px 30px 0;
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+  padding: 10px 30px;
+}
