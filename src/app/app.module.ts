@@ -13,7 +13,8 @@ import {
   MatSnackBarModule,
   MatSidenavModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatBottomSheetModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,12 +22,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { OverviewComponent } from './overview/overview.component';
+import { SheetComponent } from './sheet/sheet.component';
 
 import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
 
 import { TokenIntercepter } from './classes/token.intercepter';
-import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { OverviewComponent } from './overview/overview.component';
     AuthComponent,
     SiteComponent,
     RegisterComponent,
-    OverviewComponent
+    OverviewComponent,
+    SheetComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,10 @@ import { OverviewComponent } from './overview/overview.component';
     MatSnackBarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatBottomSheetModule
   ],
+  entryComponents: [SheetComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     multi: true,
