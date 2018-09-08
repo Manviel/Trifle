@@ -11,5 +11,11 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
+
+    <article class="footer">
+      <button mat-fab (click)="openBottomSheet()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </article>
   </mat-sidenav-content>
 </mat-sidenav-container>

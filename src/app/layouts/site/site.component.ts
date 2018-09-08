@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatBottomSheet } from '@angular/material';
+
+import { SheetComponent } from '../../sheet/sheet.component';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -17,9 +20,17 @@ export class SiteComponent implements OnInit {
     { url: '/categories', name: 'Range' }
   ];
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private bottomSheet: MatBottomSheet
+  ) { }
 
   ngOnInit() { }
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(SheetComponent);
+  }
 
   logout(event: Event) {
     event.preventDefault();

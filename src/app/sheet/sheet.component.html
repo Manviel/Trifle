@@ -1,5 +1,8 @@
 <mat-list>
-  <mat-list-item>Add</mat-list-item>
-  <mat-list-item>Assignment</mat-list-item>
-  <mat-list-item>List</mat-list-item>
+  <mat-list-item>
+    <a routerLink="/order" (click)="openLink($event)">Add order</a>
+  </mat-list-item>
+  <mat-list-item>
+    <a routerLink="/categories" (click)="openLink($event)">Add category</a>
+  </mat-list-item>
 </mat-list>

@@ -24,6 +24,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { SheetComponent } from './sheet/sheet.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { HistoryComponent } from './history/history.component';
+import { OrderComponent } from './order/order.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
@@ -38,7 +42,11 @@ import { TokenIntercepter } from './classes/token.intercepter';
     SiteComponent,
     RegisterComponent,
     OverviewComponent,
-    SheetComponent
+    SheetComponent,
+    AnalyticsComponent,
+    HistoryComponent,
+    OrderComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

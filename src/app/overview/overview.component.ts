@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet } from '@angular/material';
-
-import { SheetComponent } from '../sheet/sheet.component';
 
 @Component({
   selector: 'app-overview',
@@ -10,11 +7,7 @@ import { SheetComponent } from '../sheet/sheet.component';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(private bottomSheet: MatBottomSheet) { }
-
-  openBottomSheet(): void {
-    this.bottomSheet.open(SheetComponent);
-  }
+  constructor() { }
 
   ngOnInit() { }
 }

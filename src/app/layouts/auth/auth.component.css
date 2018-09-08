@@ -1,7 +1,4 @@
-a {
-  text-decoration: none;
-  padding: 0 14px;
-}
+a { padding: 0 14px; }
 
 a:visited, a:link { color: #fff; }
 

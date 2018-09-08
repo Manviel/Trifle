@@ -1,7 +1,3 @@
-a { text-decoration: none; }
-
-a:visited, a:link { color: #202020; }
-
 .nav { height: 100vw; }
 
 .active { background: #f0f0f0; }
