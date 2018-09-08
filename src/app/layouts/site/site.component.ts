@@ -17,7 +17,7 @@ export class SiteComponent implements OnInit {
     { url: '/analytics', name: 'Analytics' },
     { url: '/history', name: 'History' },
     { url: '/order', name: 'Add order' },
-    { url: '/categories', name: 'Range' }
+    { url: '/categories', name: 'Categories' }
   ];
 
   constructor(

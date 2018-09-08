@@ -14,7 +14,8 @@ import {
   MatSidenavModule,
   MatListModule,
   MatIconModule,
-  MatBottomSheetModule
+  MatBottomSheetModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -64,7 +65,8 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [SheetComponent],
   providers: [{

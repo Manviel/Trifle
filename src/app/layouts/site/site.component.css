@@ -17,3 +17,10 @@
   flex: 0 0 auto;
   padding: 10px 30px;
 }
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 30px;
+}

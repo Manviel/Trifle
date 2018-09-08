@@ -8,3 +8,5 @@ body {
 a { text-decoration: none; }
 
 a:visited, a:link { color: #202020; }
+
+.container { padding: 30px; }
