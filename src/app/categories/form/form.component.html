@@ -1,0 +1,18 @@
+<article class="container">
+  <section class="flex">
+    <h3>{{ isNew ? 'Add' : 'Edit'}} category</h3>
+    <mat-icon>delete</mat-icon>
+  </section>
+  <mat-form-field class="width">
+    <input matInput placeholder="Category" value="Name">
+  </mat-form-field>
+  <section class="flex">
+    <button mat-flat-button>
+      Save changes
+    </button>
+    <button mat-flat-button color="accent">
+      Upload image
+    </button>
+  </section>
+  <app-positions></app-positions>
+</article>

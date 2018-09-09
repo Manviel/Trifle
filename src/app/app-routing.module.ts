@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
 
+import { AuthGuard } from './classes/auth.guard';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
@@ -11,8 +13,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { HistoryComponent } from './history/history.component';
 import { OrderComponent } from './order/order.component';
 import { CategoriesComponent } from './categories/categories.component';
-
-import { AuthGuard } from './classes/auth.guard';
+import { FormComponent } from './categories/form/form.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,9 @@ const routes: Routes = [
       { path: 'analytics', component: AnalyticsComponent },
       { path: 'history', component: HistoryComponent },
       { path: 'order', component: OrderComponent },
-      { path: 'categories', component: CategoriesComponent }
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'categories/new', component: FormComponent },
+      { path: 'categories/:id', component: FormComponent }
     ]
   }
 ];

@@ -15,7 +15,8 @@ import {
   MatListModule,
   MatIconModule,
   MatBottomSheetModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,14 +25,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
-import { SheetComponent } from './sheet/sheet.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { HistoryComponent } from './history/history.component';
 import { OrderComponent } from './order/order.component';
+
 import { CategoriesComponent } from './categories/categories.component';
+import { FormComponent } from './categories/form/form.component';
+import { PositionsComponent } from './categories/positions/positions.component';
 
 import { AuthComponent } from './layouts/auth/auth.component';
 import { SiteComponent } from './layouts/site/site.component';
+
+import { SheetComponent } from './sheet/sheet.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 import { TokenIntercepter } from './classes/token.intercepter';
 
@@ -47,7 +53,10 @@ import { TokenIntercepter } from './classes/token.intercepter';
     AnalyticsComponent,
     HistoryComponent,
     OrderComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    FormComponent,
+    PositionsComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +75,13 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatListModule,
     MatIconModule,
     MatBottomSheetModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
-  entryComponents: [SheetComponent],
+  entryComponents: [
+    SheetComponent,
+    DialogComponent
+  ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     multi: true,

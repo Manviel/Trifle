@@ -5,14 +5,14 @@
         <a [routerLink]="[link.url]">{{ link.name }}</a>
       </mat-list-item>
     </mat-list>
-    <footer (click)="logout($event)" class="footer">
+    <footer (click)="logout($event)" class="footer container">
       <button mat-button>Log Out</button>
     </footer>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
 
-    <article class="bottom">
+    <article class="bottom container">
       <button mat-fab (click)="openBottomSheet()">
         <mat-icon>add</mat-icon>
       </button>
