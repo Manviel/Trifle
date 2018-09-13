@@ -3,16 +3,21 @@
     <h3>{{ isNew ? 'Add' : 'Edit'}} category</h3>
     <mat-icon>delete</mat-icon>
   </section>
-  <mat-form-field class="width">
-    <input matInput placeholder="Category" value="Name">
-  </mat-form-field>
-  <section class="flex">
-    <button mat-flat-button>
-      Save changes
-    </button>
-    <button mat-flat-button color="accent">
-      Upload image
-    </button>
-  </section>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="width">
+      <input matInput formControlName="name" placeholder="Name">
+      <mat-error>
+        Name can not be empty
+      </mat-error>
+    </mat-form-field>
+    <section class="flex">
+      <button type="submit" mat-flat-button [disabled]="form.invalid">
+        Save changes
+      </button>
+      <button type="button" mat-flat-button color="accent">
+        Upload image
+      </button>
+    </section>
+  </form>
   <app-positions></app-positions>
 </article>
