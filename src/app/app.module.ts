@@ -15,7 +15,6 @@ import {
   MatListModule,
   MatIconModule,
   MatBottomSheetModule,
-  MatProgressSpinnerModule,
   MatDialogModule
 } from '@angular/material';
 
@@ -75,7 +74,6 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatListModule,
     MatIconModule,
     MatBottomSheetModule,
-    MatProgressSpinnerModule,
     MatDialogModule
   ],
   entryComponents: [

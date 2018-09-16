@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe(
       (params: Params) => {
         if (params['registered']) {
-          this.snackBar.open('Now you can go');
+          this.snackBar.open('Now you can go', 'params', { duration: 2000 });
         } else if (params['accessDenied']) {
-          this.snackBar.open('Please log in');
+          this.snackBar.open('Please log in', 'params', { duration: 2000 });
         } else if (params['sessionFailed']) {
-          this.snackBar.open('Log in again');
+          this.snackBar.open('Log in again', 'params', { duration: 2000 });
         }
       }
     );
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.sub = this.auth.login(this.form.value).subscribe(
       () => this.router.navigate(['/overview']),
-      error => this.snackBar.open(error.error.message),
+      error => this.snackBar.open(error.error.message, 'error', { duration: 2000 }),
       () => this.form.enable()
     );
   }

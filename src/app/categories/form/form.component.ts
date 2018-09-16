@@ -58,7 +58,7 @@ export class FormComponent implements OnInit {
 
 			this.form.enable();
 		},
-			err => this.snackBar.open(err.error.message)
+			err => this.snackBar.open(err.error.message, 'error', { duration: 2000 })
 		)
 	}
 
@@ -94,12 +94,12 @@ export class FormComponent implements OnInit {
 		obs.subscribe(category => {
 			this.category = category;
 
-			this.snackBar.open('Changes saved');
+			this.snackBar.open('Changes saved', 'success', { duration: 2000 });
 
 			this.form.enable();
 		},
 			error => {
-				this.snackBar.open(error.error.message);
+				this.snackBar.open(error.error.message, 'error', { duration: 2000 });
 
 				this.form.enable();
 			});

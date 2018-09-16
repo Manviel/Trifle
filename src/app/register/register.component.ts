@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           registered: true
         }
       }),
-      error => this.snackBar.open(error.error.message),
+      error => this.snackBar.open(error.error.message, 'error', { duration: 2000 }),
       () => this.form.enable()
     );
   }
