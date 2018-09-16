@@ -3,7 +3,7 @@
     <h3>{{ isNew ? 'Add' : 'Edit'}} category</h3>
     <mat-icon>delete</mat-icon>
   </section>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grow">
     <mat-form-field class="width">
       <input matInput formControlName="name" placeholder="Name">
       <mat-error>
@@ -14,7 +14,11 @@
       <button type="submit" mat-flat-button [disabled]="form.invalid">
         Save changes
       </button>
-      <button type="button" mat-flat-button color="accent">
+      <div class="img" *ngIf="preview">
+        <img class="responsive" [src]="preview">
+      </div>
+      <input type="file" class="none" #input (change)="fileUpload($event)">
+      <button type="button" mat-flat-button [disabled]="form.disabled" color="accent" (click)="triggerInput()">
         Upload image
       </button>
     </section>
