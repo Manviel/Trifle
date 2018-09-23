@@ -2,3 +2,12 @@
 <button mat-stroked-button (click)="openDialog()">
   Add positions
 </button>
+<mat-list *ngIf="positions.length > 0; else empty">
+  <mat-list-item *ngFor="let position of positions">
+    {{ position.name }} <strong>{{ position.cost }}</strong>
+  </mat-list-item>
+</mat-list>
+
+<ng-template #empty>
+  <p>You do not have positions</p>
+</ng-template>

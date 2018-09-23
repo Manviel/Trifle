@@ -11,10 +11,10 @@ export class CategoriesComponent implements OnInit {
 
   categories: any[]
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriService: CategoriesService) { }
 
   ngOnInit() {
-    this.categoriesService.fetch().subscribe(res => {
+    this.categoriService.fetch().subscribe(res => {
       this.categories = res;
     });
   }

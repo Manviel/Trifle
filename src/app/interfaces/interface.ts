@@ -1,15 +1,23 @@
 export interface User {
-  email: string,
+  email: string
   password: string
 }
 
 export interface Category {
-  name: string,
-  image?: string,
+  name: string
+  image?: string
   user?: string
   _id?: string
 }
 
 export interface Message {
   message: string
+}
+
+export interface Position {
+  name: string
+  cost: number
+  user?: string
+  category: string
+  _id?: string
 }

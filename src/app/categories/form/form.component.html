@@ -23,5 +23,6 @@
       </button>
     </section>
   </form>
-  <app-positions></app-positions>
+
+  <app-positions *ngIf="category?._id" [categoryId]="category._id"></app-positions>
 </article>

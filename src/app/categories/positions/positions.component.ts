@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { DialogComponent } from '../../dialog/dialog.component';
+
+import { PositionsService } from '../../services/positions.service';
+
+import { Position } from '../../interfaces/interface';
 
 @Component({
   selector: 'app-positions',
@@ -9,14 +13,22 @@ import { DialogComponent } from '../../dialog/dialog.component';
   styleUrls: ['./positions.component.css']
 })
 export class PositionsComponent implements OnInit {
+  @Input('categoryId') categoryId: string
 
-  constructor(public dialog: MatDialog) { }
+  positions: Position[] = []
 
-  ngOnInit() { }
+  constructor(
+    public dialog: MatDialog,
+    private positionService: PositionsService
+  ) { }
+
+  ngOnInit() {
+    this.positionService.fetch(this.categoryId).subscribe(positions => {
+      this.positions = positions
+    });
+  }
 
   openDialog(): void {
-    this.dialog.open(DialogComponent, {
-      width: '400px'
-    });
+    this.dialog.open(DialogComponent);
   }
 }

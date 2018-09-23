@@ -1,7 +1,13 @@
-<h1 mat-dialog-title>Close dialog</h1>
-<div mat-dialog-content>
-  <p>dialog works!</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onClose()">Ok</button>
-</div>
+<h1 mat-dialog-title>Add position</h1>
+<mat-dialog-content>
+  <mat-form-field class="width">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field class="width">
+    <input matInput placeholder="Cost">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button>Cancel</button>
+  <button mat-button (click)="onClose()">Save</button>
+</mat-dialog-actions>

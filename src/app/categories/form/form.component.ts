@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private categories: CategoriesService,
+		private categoriService: CategoriesService,
 		public snackBar: MatSnackBar
 	) { }
 
@@ -41,7 +41,7 @@ export class FormComponent implements OnInit {
 				if (params['id']) {
 					this.isNew = false;
 
-					return this.categories.getById(params['id']);
+					return this.categoriService.getById(params['id']);
 				}
 
 				return of(null);
@@ -85,7 +85,7 @@ export class FormComponent implements OnInit {
 		const decision = window.confirm(`Are you sure, you want to delete ${this.category.name}?`);
 
 		if (decision) {
-			this.categories.delete(this.category._id).subscribe(
+			this.categoriService.delete(this.category._id).subscribe(
 				response => this.snackBar.open(response.message, 'response', { duration: 2000 }),
 				err => this.snackBar.open(err.error.message, 'error', { duration: 2000 }),
 				() => this.router.navigate(['/categories'])
@@ -99,9 +99,9 @@ export class FormComponent implements OnInit {
 		this.form.disable();
 
 		if (this.isNew) {
-			obs = this.categories.create(this.form.value.name, this.image);
+			obs = this.categoriService.create(this.form.value.name, this.image);
 		} else {
-			obs = this.categories.update(this.category._id, this.form.value.name, this.image);
+			obs = this.categoriService.update(this.category._id, this.form.value.name, this.image);
 		}
 
 		obs.subscribe(category => {
