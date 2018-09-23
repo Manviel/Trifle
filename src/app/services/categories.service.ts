@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { Observable } from "rxjs";
 
-import { Category } from "../interfaces/interface";
+import { Category, Message } from "../interfaces/interface";
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,9 @@ export class CategoriesService {
     data.append('name', name);
 
     return this.http.patch<Category>(`/api/category/${id}`, data);
+  }
+
+  delete(id: string): Observable<Message> {
+    return this.http.delete<Message>(`/api/category/${id}`);
   }
 }

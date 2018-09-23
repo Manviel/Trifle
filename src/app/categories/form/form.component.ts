@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
@@ -26,6 +26,7 @@ export class FormComponent implements OnInit {
 
 	constructor(
 		private route: ActivatedRoute,
+		private router: Router,
 		private categories: CategoriesService,
 		public snackBar: MatSnackBar
 	) { }
@@ -78,6 +79,18 @@ export class FormComponent implements OnInit {
 		}
 
 		reader.readAsDataURL(file);
+	}
+
+	deleteCategory() {
+		const decision = window.confirm(`Are you sure, you want to delete ${this.category.name}?`);
+
+		if (decision) {
+			this.categories.delete(this.category._id).subscribe(
+				response => this.snackBar.open(response.message, 'response', { duration: 2000 }),
+				err => this.snackBar.open(err.error.message, 'error', { duration: 2000 }),
+				() => this.router.navigate(['/categories'])
+			);
+		}
 	}
 
 	onSubmit() {

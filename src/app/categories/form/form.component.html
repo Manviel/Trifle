@@ -1,7 +1,7 @@
 <article class="container">
   <section class="flex">
     <h3>{{ isNew ? 'Add' : 'Edit'}} category</h3>
-    <mat-icon>delete</mat-icon>
+    <mat-icon *ngIf="!isNew" (click)="deleteCategory()">delete</mat-icon>
   </section>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grow">
     <mat-form-field class="width">

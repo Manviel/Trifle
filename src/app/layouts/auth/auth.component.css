@@ -4,4 +4,8 @@ a:visited, a:link { color: #fff; }
 
 .example { flex: 1 1 auto; }
 
-.back { background-color: #fafafa; }
+.back {
+  display: flex;
+  background-color: #fafafa;
+  justify-content: center;
+}
