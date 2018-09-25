@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>Add position</h1>
 <mat-dialog-content>
   <mat-form-field class="width">
-    <input matInput placeholder="Name">
+    <input matInput placeholder="Name" [(ngModel)]="data.name">
   </mat-form-field>
   <mat-form-field class="width">
-    <input matInput placeholder="Cost">
+    <input matInput placeholder="Cost" [(ngModel)]="data.cost">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button>Cancel</button>
-  <button mat-button (click)="onClose()">Save</button>
+  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
 </mat-dialog-actions>

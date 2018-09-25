@@ -5,6 +5,7 @@
 <mat-list *ngIf="positions.length > 0; else empty">
   <mat-list-item *ngFor="let position of positions">
     {{ position.name }} <strong>{{ position.cost }}</strong>
+    <mat-icon (click)="deletePosition(position)">delete_outline</mat-icon>
   </mat-list-item>
 </mat-list>
 

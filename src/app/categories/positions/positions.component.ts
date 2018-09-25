@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { DialogComponent } from '../../dialog/dialog.component';
 
@@ -17,9 +17,12 @@ export class PositionsComponent implements OnInit {
 
   positions: Position[] = []
 
+  position: Position
+
   constructor(
     public dialog: MatDialog,
-    private positionService: PositionsService
+    private positionService: PositionsService,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -29,6 +32,21 @@ export class PositionsComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(DialogComponent);
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {
+        position: this.position,
+        category: this.categoryId
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.snackBar.open('Position created', 'success', { duration: 2000 });
+
+      this.positionService.create(res).subscribe(pos => this.positions.push(pos));
+    },
+      err => this.snackBar.open(err.error.message, 'error', { duration: 2000 })
+    );
   }
+
+  deletePosition() { }
 }
