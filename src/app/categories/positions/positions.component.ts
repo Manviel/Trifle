@@ -34,7 +34,8 @@ export class PositionsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: {
-        position: this.position,
+        name: this.position,
+        cost: this.position,
         category: this.categoryId
       }
     });
@@ -48,5 +49,19 @@ export class PositionsComponent implements OnInit {
     );
   }
 
-  deletePosition() { }
+  deletePosition(position: Position) {
+    const decision = window.confirm(`Delete position ${position.name}?`);
+
+    if (decision) {
+      this.positionService.delete(position).subscribe(res => {
+        const idx = this.positions.findIndex(p => p._id === position._id);
+
+        this.positions.splice(idx, 1);
+
+        this.snackBar.open(res.message, 'response', { duration: 2000 })
+      },
+        err => this.snackBar.open(err.error.message, 'error', { duration: 2000 })
+      );
+    }
+  }
 }
