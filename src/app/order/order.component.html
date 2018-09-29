@@ -1,7 +1,7 @@
 <article class="container">
   <header class="flex">
-    <h3>Order</h3>
-    <button mat-stroked-button>Complete</button>
+    <h3>{{ isRoot ? 'Order' : 'Add products' }}</h3>
+    <button mat-stroked-button (click)="openModal()">Complete</button>
   </header>
 
   <router-outlet></router-outlet>
