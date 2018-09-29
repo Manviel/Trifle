@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CategoriesService } from '../services/categories.service';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  selector: 'app-rank',
+  templateUrl: './rank.component.html',
+  styleUrls: ['./rank.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class RankComponent implements OnInit {
   categories: any[]
 
   constructor(private categoriService: CategoriesService) { }

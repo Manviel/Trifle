@@ -3,7 +3,7 @@
   <button mat-stroked-button routerLink="/categories/new">
     Add category
   </button>
-  <mat-nav-list *ngIf="categories.length > 0; else empty">
+  <mat-nav-list *ngIf="categories; else empty">
     <a mat-list-item *ngFor="let item of categories" [routerLink]="['/categories', item._id]">
       {{ item.name }}
     </a>

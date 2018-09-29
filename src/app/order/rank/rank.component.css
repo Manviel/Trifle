@@ -1,0 +1,13 @@
+.responsive {
+  max-height: 50%;
+  border-radius: 50%;
+}
+
+.center {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

@@ -11,9 +11,13 @@ import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { HistoryComponent } from './history/history.component';
-import { OrderComponent } from './order/order.component';
+
 import { CategoriesComponent } from './categories/categories.component';
 import { FormComponent } from './categories/form/form.component';
+
+import { OrderComponent } from './order/order.component';
+import { RankComponent } from './order/rank/rank.component';
+import { StanceComponent } from './order/stance/stance.component';
 
 const routes: Routes = [
   {
@@ -28,7 +32,10 @@ const routes: Routes = [
       { path: 'overview', component: OverviewComponent },
       { path: 'analytics', component: AnalyticsComponent },
       { path: 'history', component: HistoryComponent },
-      { path: 'order', component: OrderComponent },
+      { path: 'order', component: OrderComponent, children: [
+        { path: '', component: RankComponent },
+        { path: ':id', component: StanceComponent }
+      ]},
       { path: 'categories', component: CategoriesComponent },
       { path: 'categories/new', component: FormComponent },
       { path: 'categories/:id', component: FormComponent }

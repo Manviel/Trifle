@@ -1,0 +1,12 @@
+<mat-grid-list cols="3" rowHeight="1:1" *ngIf="categories; else empty">
+  <mat-grid-tile *ngFor="let cat of categories">
+    <section class="center" [routerLink]="['/order', cat._id]">
+      <img [src]="cat.image" class="responsive">
+      <h4>{{ cat.name }}</h4>
+    </section>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #empty>
+  <p>You do not have categories</p>
+</ng-template>

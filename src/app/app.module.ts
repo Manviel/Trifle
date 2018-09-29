@@ -15,7 +15,8 @@ import {
   MatListModule,
   MatIconModule,
   MatBottomSheetModule,
-  MatDialogModule
+  MatDialogModule,
+  MatGridListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,10 @@ import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { HistoryComponent } from './history/history.component';
+
 import { OrderComponent } from './order/order.component';
+import { RankComponent } from './order/rank/rank.component';
+import { StanceComponent } from './order/stance/stance.component';
 
 import { CategoriesComponent } from './categories/categories.component';
 import { FormComponent } from './categories/form/form.component';
@@ -55,7 +59,9 @@ import { TokenIntercepter } from './classes/token.intercepter';
     CategoriesComponent,
     FormComponent,
     PositionsComponent,
-    DialogComponent
+    DialogComponent,
+    RankComponent,
+    StanceComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,8 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatListModule,
     MatIconModule,
     MatBottomSheetModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   entryComponents: [
     SheetComponent,
