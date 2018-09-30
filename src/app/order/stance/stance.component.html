@@ -1,3 +1,24 @@
-<p>
-  stance works!
-</p>
+<table *ngIf="stream; else empty" class="table">
+  <tr>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Quantity</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let elem of stream">
+    <td>{{ elem.name }}</td>
+    <td>{{ elem.cost }}</td>
+    <td>
+      <input matInput type="number" min="1" [(ngModel)]="elem.quantity">
+    </td>
+    <td>
+      <button mat-stroked-button color="primary" (click)="addToOrder(elem)" [disabled]="!elem.quantity">
+        Add
+      </button>
+    </td>
+  </tr>
+</table>
+
+<ng-template #empty>
+  <p>It is empty here</p>
+</ng-template>
