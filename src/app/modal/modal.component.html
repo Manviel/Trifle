@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Your order</h1>
+<h3 mat-dialog-title>Total: {{ data.price }}</h3>
+<mat-dialog-content>
+  <table *ngIf="data.list.length > 0">
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Cost</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of data.list">
+      <td>{{ item.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.cost }}</td>
+      <td><mat-icon (click)="removeItem(item)">delete</mat-icon></td>
+    </tr>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close>Save</button>
+</mat-dialog-actions>

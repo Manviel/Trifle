@@ -1,0 +1,6 @@
+td {
+  height: 46px;
+  text-align: center;
+}
+
+td:not(:first-child) { width: 70px; }

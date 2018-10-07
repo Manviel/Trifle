@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 import { PositionsService } from '../../services/positions.service';
 import { OrderService } from '../../services/order.service';
@@ -17,7 +18,8 @@ export class StanceComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private positionService: PositionsService,
-		private orderService: OrderService
+		private orderService: OrderService,
+		public snackBar: MatSnackBar
 	) { }
 
 	ngOnInit() {
@@ -29,6 +31,8 @@ export class StanceComponent implements OnInit {
 	}
 
 	addToOrder(position: Position) {
+		this.snackBar.open(`${position.name}`, `${position.quantity}`, { duration: 2000 });
+
 		this.orderService.add(position);
 	}
 }

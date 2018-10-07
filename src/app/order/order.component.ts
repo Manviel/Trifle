@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-import { DialogComponent } from '../dialog/dialog.component';
+import { ModalComponent } from '../modal/modal.component';
 
 import { OrderService } from '../services/order.service';
 
@@ -22,7 +22,12 @@ export class OrderComponent implements OnInit {
   ) { }
 
   openModal(): void {
-    this.dialog.open(DialogComponent);
+    this.dialog.open(ModalComponent, {
+      data: {
+        list: this.orderService.getList(),
+        price: this.orderService.getPrice()
+      }
+    });
   }
 
   ngOnInit() {
