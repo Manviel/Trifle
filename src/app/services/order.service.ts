@@ -1,12 +1,19 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-import { Position, ListItem } from "../interfaces/interface";
+import { Observable } from "rxjs";
 
-@Injectable()
+import { Position, ListItem, Order } from "../interfaces/interface";
+
+@Injectable({
+  providedIn: 'root'
+})
 export class OrderService {
+  constructor(private http: HttpClient) { }
+
   public list: ListItem[] = []
   public price = 0
-  
+
   add(position: Position) {
     const order: ListItem = Object.assign({}, {
       name: position.name,
@@ -23,28 +30,27 @@ export class OrderService {
       this.list.push(order);
     }
 
-    this.computePrice();
+    this.price = this.computePrice(this.list, this.price);
   }
 
   remove(order: ListItem, data) {
     const idx = data.list.findIndex(p => p._id === order._id);
-    
+
     data.list.splice(idx, 1);
 
-    this.list = data.list;
-    this.price = data.price;
+    this.price = this.computePrice(data.list, data.price);
 
-    this.computePrice();
-    
     data.price = this.price;
   }
 
-  clear() {}
-
-  computePrice() {
-    this.price = this.list.reduce((total, i) => {
+  computePrice(list, price) {
+    return price = list.reduce((total, i) => {
       return total += i.quantity * i.cost
     }, 0);
+  }
+
+  createOrder(order: Order): Observable<Order> {
+    return this.http.post<Order>('/api/order', order)
   }
 
   getList = () => this.list;

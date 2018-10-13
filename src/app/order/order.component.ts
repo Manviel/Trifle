@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { ModalComponent } from '../modal/modal.component';
 
 import { OrderService } from '../services/order.service';
 
+import { Order } from '../interfaces/interface';
+
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css'],
-  providers: [OrderService]
+  styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
   isRoot: boolean
@@ -19,14 +20,28 @@ export class OrderComponent implements OnInit {
     private router: Router,
     private orderService: OrderService,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   openModal(): void {
-    this.dialog.open(ModalComponent, {
+    const dialogRef = this.dialog.open(ModalComponent, {
       data: {
         list: this.orderService.getList(),
         price: this.orderService.getPrice()
       }
+    });
+
+    dialogRef.afterClosed().subscribe(list => {
+      const newOrder: Order = {
+        list: list
+      }
+
+      this.orderService.createOrder(newOrder).subscribe(
+        result => {
+          this.snackBar.open(`Order ${result.order} has been added`, 'success', { duration: 2000 });
+        },
+        err => this.snackBar.open(err.error.message, 'error', { duration: 2000 })
+      );
     });
   }
 
