@@ -53,6 +53,11 @@ export class OrderService {
     return this.http.post<Order>('/api/order', order)
   }
 
+  clear() {
+    this.list = [];
+    this.price = 0;
+  }
+
   getList = () => this.list;
 
   getPrice = () => this.price;
