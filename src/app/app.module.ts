@@ -16,7 +16,10 @@ import {
   MatIconModule,
   MatBottomSheetModule,
   MatDialogModule,
-  MatGridListModule
+  MatGridListModule,
+  MatMenuModule,
+  MatTableModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +29,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+
 import { HistoryComponent } from './history/history.component';
+import { ListComponent } from './history/list/list.component';
+import { FilterComponent } from './history/filter/filter.component';
 
 import { OrderComponent } from './order/order.component';
 import { RankComponent } from './order/rank/rank.component';
@@ -63,7 +69,9 @@ import { TokenIntercepter } from './classes/token.intercepter';
     DialogComponent,
     RankComponent,
     StanceComponent,
-    ModalComponent
+    ModalComponent,
+    ListComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +91,10 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatIconModule,
     MatBottomSheetModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     SheetComponent,

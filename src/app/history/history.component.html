@@ -1,3 +1,18 @@
-<p>
-  history works!
-</p>
+<article class="container">
+  <header class="flex space">
+    <h3>History</h3>
+    <app-filter></app-filter>
+  </header>
+
+  <div *ngIf="!reloading; else loader">
+    <app-list [orders]="orders"></app-list>
+
+    <section class="flex center top" *ngIf="!enough">
+      <button mat-stroked-button (click)="loadMore()">Load more</button>
+    </section>
+  </div>
+</article>
+
+<ng-template #loader>
+  <mat-spinner></mat-spinner>
+</ng-template>
