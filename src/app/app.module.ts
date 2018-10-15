@@ -48,6 +48,7 @@ import { SiteComponent } from './layouts/site/site.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ModalComponent } from './modal/modal.component';
+import { PopupComponent } from './popup/popup.component';
 
 import { TokenIntercepter } from './classes/token.intercepter';
 
@@ -71,7 +72,8 @@ import { TokenIntercepter } from './classes/token.intercepter';
     StanceComponent,
     ModalComponent,
     ListComponent,
-    FilterComponent
+    FilterComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { TokenIntercepter } from './classes/token.intercepter';
   entryComponents: [
     SheetComponent,
     DialogComponent,
-    ModalComponent
+    ModalComponent,
+    PopupComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
