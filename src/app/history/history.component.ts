@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { OrderService } from '../services/order.service';
+import { Filter } from '../interfaces/interface';
 
 @Component({
   selector: 'app-history',
@@ -18,14 +19,15 @@ export class HistoryComponent implements OnInit, OnDestroy {
   enough = false
 
   orders = []
+  filter = {}
 
   constructor(private orderService: OrderService) { }
 
   private fetch() {
-    const params = {
+    const params = Object.assign({}, this.filter, {
       offset: this.offset,
       limit: this.limit
-    }
+    })
 
     this.sub = this.orderService.fetch(params).subscribe(orders => {
       this.orders = this.orders.concat(orders);
@@ -37,6 +39,14 @@ export class HistoryComponent implements OnInit, OnDestroy {
   loadMore() {
     this.offset += 2;
     this.fetch();
+  }
+
+  applyFilter(filter: Filter) {
+    this.orders = []
+    this.offset = 0
+    this.filter = filter
+    this.reloading = true
+    this.fetch()
   }
 
   ngOnInit() {

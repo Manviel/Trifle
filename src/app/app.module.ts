@@ -17,9 +17,11 @@ import {
   MatBottomSheetModule,
   MatDialogModule,
   MatGridListModule,
-  MatMenuModule,
+  MatExpansionModule,
   MatTableModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -94,9 +96,11 @@ import { TokenIntercepter } from './classes/token.intercepter';
     MatBottomSheetModule,
     MatDialogModule,
     MatGridListModule,
-    MatMenuModule,
+    MatExpansionModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   entryComponents: [
     SheetComponent,
