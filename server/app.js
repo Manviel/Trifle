@@ -13,7 +13,8 @@ const keys = require('./keys');
 
 const app = express();
 
-mongoose.connect(keys.mongoUri)
+mongoose
+  .connect(keys.mongoUri)
   .then(() => console.log('MongoDB connected'))
   .catch(error => console.log(error));
 
