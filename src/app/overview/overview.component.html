@@ -1,3 +1,22 @@
 <article class="container">
-  <p>Hello world</p>
+  <h3>Overview {{ yesterday | date: 'dd.MM.yyyy' }}</h3>
+
+  <mat-card>
+    <mat-card-title>Revenue</mat-card-title>
+    <mat-card-subtitle>data.gain.yesterday</mat-card-subtitle>
+    <mat-icon>
+      arrow_upward
+    </mat-icon>
+    <h4>data.gain.percent</h4>
+    <p>data.gain.compare</p>
+  </mat-card>
+
+  <mat-card class="top">
+    <mat-card-title>Orders</mat-card-title>
+    <mat-card-subtitle>data.gain.yesterday</mat-card-subtitle>
+    <mat-icon>
+      arrow_downward
+    </mat-icon>
+    <h4>data.orders.percent</h4>
+  </mat-card>
 </article>
