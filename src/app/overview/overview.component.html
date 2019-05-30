@@ -1,22 +1,31 @@
 <article class="container">
-  <h3>Overview {{ yesterday | date: 'dd.MM.yyyy' }}</h3>
+  <h3>Overview {{ yesterday | date: "dd.MM.yyyy" }}</h3>
 
   <mat-card>
     <mat-card-title>Revenue</mat-card-title>
-    <mat-card-subtitle>data.gain.yesterday</mat-card-subtitle>
+    <mat-card-subtitle>{{ data?.gain.yesterday }} dollars</mat-card-subtitle>
     <mat-icon>
-      arrow_upward
+      {{ data?.gain.isHigher ? "arrow_upward" : "arrow_downward" }}
     </mat-icon>
-    <h4>data.gain.percent</h4>
-    <p>data.gain.compare</p>
+    <h4>{{ data?.gain.percent }}%</h4>
+    <p>
+      Your business revenue yesterday is {{ data?.gain.percent }}%
+      {{ data?.gain.isHigher ? "above" : "below" }} average:
+      {{ data?.gain.compare }}
+    </p>
   </mat-card>
 
   <mat-card class="top">
     <mat-card-title>Orders</mat-card-title>
-    <mat-card-subtitle>data.gain.yesterday</mat-card-subtitle>
+    <mat-card-subtitle>{{ data?.orders.yesterday }} orders</mat-card-subtitle>
     <mat-icon>
-      arrow_downward
+      {{ data?.orders.isHigher ? "arrow_upward" : "arrow_downward" }}
     </mat-icon>
-    <h4>data.orders.percent</h4>
+    <h4>{{ data?.orders.percent }}%</h4>
+    <p>
+      Your business orders yesterday is {{ data?.orders.percent }}%
+      {{ data?.orders.isHigher ? "above" : "below" }} average:
+      {{ data?.orders.compare }}
+    </p>
   </mat-card>
 </article>

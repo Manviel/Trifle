@@ -1,7 +1,7 @@
-const moment = require('moment');
+const moment = require("moment");
 
-const Order = require('../models/Order');
-const errorHandler = require('../utils/errorHandler');
+const Order = require("../models/Order");
+const errorHandler = require("../utils/errorHandler");
 
 module.exports.overview = async function(req, res) {
   try {
@@ -10,8 +10,8 @@ module.exports.overview = async function(req, res) {
     const yesterday =
       ordersMap[
         moment()
-          .add(-1, 'd')
-          .format('DD.MM.YYYY')
+          .add(-1, "d")
+          .format("DD.MM.YYYY")
       ] || [];
 
     const yesterdayOrdersNumber = yesterday.length;
@@ -55,7 +55,7 @@ module.exports.overview = async function(req, res) {
 
 module.exports.analytics = function(req, res) {
   res.status(200).json({
-    login: 'It is work'
+    login: "It is work"
   });
 };
 
@@ -63,9 +63,9 @@ function getOrdersMap(orders = []) {
   const days = {};
 
   orders.forEach(order => {
-    const date = moment(order.date).format('DD.MM.YYYY');
+    const date = moment(order.date).format("DD.MM.YYYY");
 
-    if (date === moment().format('DD.MM.YYYY')) {
+    if (date === moment().format("DD.MM.YYYY")) {
       return;
     }
     if (!days[date]) {
@@ -81,7 +81,7 @@ function getOrdersMap(orders = []) {
 function calculatePrice(orders = []) {
   return orders.reduce((total, order) => {
     const price = order.list.reduce((total, item) => {
-      return (total += item.cost * item.quntity);
+      return (total += item.cost * item.quantity);
     }, 0);
 
     return (total += price);
