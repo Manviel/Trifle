@@ -53,10 +53,31 @@ module.exports.overview = async function(req, res) {
   }
 };
 
-module.exports.analytics = function(req, res) {
-  res.status(200).json({
-    login: "It is work"
-  });
+module.exports.analytics = async function(req, res) {
+  try {
+    const allOrders = await Order.find({ user: req.user.id }).sort({ date: 1 });
+    const ordersMap = getOrdersMap(allOrders);
+
+    const average = calculatePrice(allOrders) / Object.keys(ordersMap).length;
+
+    const chart = Object.keys(ordersMap).map(label => {
+      const gain = calculatePrice(ordersMap[label]);
+      const order = ordersMap[label].length;
+
+      return {
+        label,
+        order,
+        gain
+      };
+    });
+
+    res.status(200).json({
+      average,
+      chart
+    });
+  } catch (e) {
+    errorHandler(res, e);
+  }
 };
 
 function getOrdersMap(orders = []) {

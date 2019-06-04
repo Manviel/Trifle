@@ -55,3 +55,14 @@ export interface OverviewItem {
   yesterday: number;
   isHigher: boolean;
 }
+
+export interface AnalyticsPage {
+  average: number;
+  chart: ChartItem[];
+}
+
+export interface ChartItem {
+  gain: number;
+  order: number;
+  label: string;
+}
