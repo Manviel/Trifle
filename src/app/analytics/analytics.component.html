@@ -1,14 +1,8 @@
 <article class="container">
-  <section *ngIf="!pending; else loader">
-    <h3>Analytics</h3>
-    <p>Average check: {{ average }}</p>
-    <h5>Revenue</h5>
-    <canvas #gain></canvas>
-    <h5>Orders</h5>
-    <canvas #order></canvas>
-  </section>
-
-  <ng-template #loader>
-    <p>Loading...</p>
-  </ng-template>
+  <h3>Analytics</h3>
+  <p>Average check: {{ average }}</p>
+  <h5>Revenue</h5>
+  <canvas #gainChart></canvas>
+  <h5>Orders</h5>
+  <canvas #orderChart></canvas>
 </article>
