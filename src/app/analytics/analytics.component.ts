@@ -11,8 +11,8 @@ import { AnalyticsPage } from "../interfaces/interface";
   styleUrls: ["./analytics.component.css"]
 })
 export class AnalyticsComponent implements AfterViewInit {
-  @ViewChild("gainChart") gainRef: ElementRef;
-  @ViewChild("orderChart") orderRef: ElementRef;
+  @ViewChild("gainChart", { static: true }) gainRef: ElementRef;
+  @ViewChild("orderChart", { static: true }) orderRef: ElementRef;
 
   sub: Subscription;
   average: number;
